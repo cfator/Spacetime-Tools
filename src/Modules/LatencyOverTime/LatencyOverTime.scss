@@ -1,0 +1,19 @@
+.LatencyOverTime {
+  .filter-controls {
+    display: flex;
+    text-wrap: none;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .Select {
+      width: 160px;
+      display: inline-block;
+    }
+  }
+
+  .footer {
+    margin-top: 4px;
+  }
+}

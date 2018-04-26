@@ -1,0 +1,31 @@
+.Primary {
+  header {
+    display: flex;
+    text-wrap: none;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .upload-file {
+      margin-right: 20px;
+      display: inline-block;
+      height: 34px;
+      width: 140px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .Select {
+      width: 160px;
+      display: inline-block;
+    }
+  }
+  .app-main {
+    display: flex;
+    justify-content: flex-start;
+
+    .content {
+      width: calc(100% - 160px);
+    }
+  }
+}

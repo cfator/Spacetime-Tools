@@ -1,0 +1,57 @@
+import ColumnNames from '@Constants/ColumnNames';
+
+let columnNames = {};
+
+columnNames[ColumnNames.TimeMessageReceivedUTC] = 0;
+columnNames[ColumnNames.AccelEventDuration] = 0;
+columnNames[ColumnNames.AmberWarningLamp] = 0;
+columnNames[ColumnNames.BootStatus] = 0;
+columnNames[ColumnNames.DefLevel] = 0;
+columnNames[ColumnNames.EngineCoolantTemp] = 0;
+columnNames[ColumnNames.EngineHours] = 0;
+columnNames[ColumnNames.ESN] = 0;
+columnNames[ColumnNames.EventCode] = 0;
+columnNames[ColumnNames.FlashingAmberWarningLamp] = 0;
+columnNames[ColumnNames.FlashingMalfunctionIndicatorLamp] = 0;
+columnNames[ColumnNames.FlashingProtectLamp] = 0;
+columnNames[ColumnNames.FlashingRedStopLamp] = 0;
+columnNames[ColumnNames.FwRev] = 0;
+columnNames[ColumnNames.Hdop] = 0;
+columnNames[ColumnNames.Heading] = 0;
+columnNames[ColumnNames.InputStates] = 0;
+columnNames[ColumnNames.Latitude] = 0;
+columnNames[ColumnNames.Longitude] = 0;
+columnNames[ColumnNames.MalfunctionIndicatorLamp] = 0;
+columnNames[ColumnNames.MaxAccel] = 0;
+columnNames[ColumnNames.MaxEventDuration] = 0;
+columnNames[ColumnNames.MaxEventValue] = 0;
+columnNames[ColumnNames.NumSats] = 0;
+columnNames[ColumnNames.ObdEngRpm] = 0;
+columnNames[ColumnNames.ObdFuelLevelPct] = 0;
+columnNames[ColumnNames.ObdKML] = 0;
+columnNames[ColumnNames.ObdLifetimeOdom] = 0;
+columnNames[ColumnNames.ObdVehicleSpeed] = 0;
+columnNames[ColumnNames.ObdVIN] = 0;
+columnNames[ColumnNames.OilLife] = 0;
+columnNames[ColumnNames.OptionByte] = 0;
+columnNames[ColumnNames.OutputStates] = 0;
+columnNames[ColumnNames.PacketID] = 0;
+columnNames[ColumnNames.ProtectLamp] = 0;
+columnNames[ColumnNames.ReasonCode] = 0;
+columnNames[ColumnNames.ReceiverSigStr] = 0;
+columnNames[ColumnNames.RedStopLamp] = 0;
+columnNames[ColumnNames.RevisionCode] = 0;
+columnNames[ColumnNames.SeatBeltStatus] = 0;
+columnNames[ColumnNames.SequenceNumber] = 0;
+columnNames[ColumnNames.SystemStates] = 0;
+columnNames[ColumnNames.TempSensor0] = 0;
+columnNames[ColumnNames.TempSensor1] = 0;
+columnNames[ColumnNames.TransmissionTemp] = 0;
+columnNames[ColumnNames.TripFuelUseduL] = 0;
+columnNames[ColumnNames.TrueOdoKM] = 0;
+columnNames[ColumnNames.UnixTime] = 0;
+columnNames[ColumnNames.VehicleBattVolts] = 0;
+columnNames[ColumnNames.XbpPowertrainObdDtc] = 0;
+
+// used to assert columns are valid while importing
+export default columnNames;
