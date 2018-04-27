@@ -54,4 +54,4 @@ columnNames[ColumnNames.VehicleBattVolts] = 0;
 columnNames[ColumnNames.XbpPowertrainObdDtc] = 0;
 
 // used to assert columns are valid while importing
-export default columnNames;
+export default Object.freeze(columnNames);

@@ -1,0 +1,23 @@
+// used to make typos more discoverable while developing
+export default Object.freeze([
+  '#c5d5cb',
+  '#9fa8a3',
+  '#e3e0cf',
+  '#edd9c0',
+  '#c9d8c5',
+  '#a8b6bf',
+  '#7d4627',
+  '#9ad3de',
+  '#89bdd3',
+  '#9068be',
+  '#e62739',
+  '#22264b',
+  '#b56969',
+  '#5a5c51',
+  '#aa863a',
+  '#b0aac2',
+  '#dbe9d8',
+  '#6534ff',
+  '#fccdd3',
+  '#e05038',
+]);

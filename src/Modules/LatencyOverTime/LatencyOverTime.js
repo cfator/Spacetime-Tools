@@ -55,8 +55,8 @@ export default class LatencyOverTime extends Component {
   render() {
     return (
       <div className='LatencyOverTime'>
-        <div className='filter-controls'>
-          <label style={{float: 'left'}}>Select Latency Cutoff:&nbsp;</label>
+        <div className='section-heading'>
+          <label className='section-label'>Select Latency Cutoff:&nbsp;</label>
           <Select
             value={this.store.selectedThreshold}
             onChange={this.store.onThresholdChange}

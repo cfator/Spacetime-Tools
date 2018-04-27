@@ -1,4 +1,4 @@
-.LatencyOverTime {
+.FuelOverTime {
   .section-heading {
     display: flex;
     text-wrap: none;
@@ -11,14 +11,5 @@
     .section-label {
       float: left;
     }
-
-    .Select {
-      width: 160px;
-      display: inline-block;
-    }
-  }
-
-  .footer {
-    margin-top: 4px;
   }
 }

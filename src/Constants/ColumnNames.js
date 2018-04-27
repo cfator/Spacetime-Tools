@@ -1,5 +1,5 @@
 // used to make typos more discoverable while developing
-export default {
+export default Object.freeze({
   TimeMessageReceivedUTC: 'TimeMessageReceivedUTC',
   AccelEventDuration: 'AccelEventDuration',
   AmberWarningLamp: 'AmberWarningLamp',
@@ -50,4 +50,4 @@ export default {
   UnixTime: 'UnixTime',
   VehicleBattVolts: 'VehicleBattVolts',
   XbpPowertrainObdDtc: 'XbpPowertrainObdDtc'
-}
+});
