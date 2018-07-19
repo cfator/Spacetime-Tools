@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import ColumnNames from '@Constants/ColumnNames';
 
+import FuelOverTime from '@Stores/FuelOverTime';
 import LatencyOverTime from '@Stores/LatencyOverTime';
 
 // this store reads, parses and validates a timeline CSV
@@ -38,8 +39,14 @@ class AppState {
   // ESN options exposed to user
   @observable filterESNs = [this.allESNsOption];
 
+  // can only chart one ESN at a time
+  @observable allSelected = true;
+
   @action onESNFilterChange = (selectedOption) => {
     this.selectedESN = selectedOption;
+
+    this.allSelected = this.selectedESN.value === this.allESNsOption.value;
+
     this.updateAnalysis();
   };
 
@@ -66,6 +73,7 @@ class AppState {
 
      // analysis module stores
     this.latencyOverTime = new LatencyOverTime(this);
+    this.fuelOverTime = new FuelOverTime(this);
   }
 
   setFileContents(contents) {
@@ -148,6 +156,7 @@ class AppState {
   updateAnalysis() {
     // call analyze on each sub-store, only ones with active views will actually compute
     this.latencyOverTime.analyze();
+    this.fuelOverTime.analyze();
   }
 
   getFilteredColRowValue(namedColumn, rowNum, useEsnFiltered = true) {

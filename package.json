@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Spacetime Tools",
   "main": "index.js",
+  "engines" : {
+    "node" : ">9 <10"
+  },
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "echo \"No test specified\" && exit 0"

@@ -33,7 +33,7 @@ export default class LatencyOverTime {
     this.analyze();
   };
 
-  // alows visual components to set this store as active so it will update when needed but refrain when nothing to show
+  // allows visual components to set this store as active so it will update when needed but refrain when nothing to show
   setActive(active) {
     this.active = active;
     if(active) {
