@@ -19,13 +19,13 @@ class AppState {
   @observable fileValueRows = [];
 
   @computed get esnFilteredValueRows() {
-    if(this.selectedESN === undefined) {
+    if(this.selectedESN.value === undefined) {
       return [];
     } else if(this.selectedESN.value === 'all') {
       return this.fileValueRows;
     } else {
       return this.fileValueRows.filter((item) => {
-         return item[this.columnsMap[ColumnNames.ESN]] === this.selectedESN.value;
+        return item[this.columnsMap[ColumnNames.ESN]] === this.selectedESN.value;
       });
     }
   };
