@@ -18,6 +18,8 @@ class AppState {
 
   @observable fileValueRows = [];
 
+  @observable isLoading = false;
+
   @computed get esnFilteredValueRows() {
     if(this.selectedESN.value === undefined) {
       return [];
@@ -48,6 +50,14 @@ class AppState {
     this.allSelected = this.selectedESN.value === this.allESNsOption.value;
 
     this.updateAnalysis();
+  };
+
+  @action setIsLoading = (callback) => {
+    this.isLoading = true;
+    setTimeout((() => {
+      callback();
+      this.isLoading = false;
+    }).bind(this), 200);
   };
 
   logError(message, level, exception = {}) {
@@ -154,9 +164,11 @@ class AppState {
   }
 
   updateAnalysis() {
-    // call analyze on each sub-store, only ones with active views will actually compute
-    this.latencyOverTime.analyze();
-    this.fuelOverTime.analyze();
+    this.setIsLoading(() => {
+      // call analyze on each sub-store, only ones with active views will actually compute
+      this.latencyOverTime.analyze();
+      this.fuelOverTime.analyze();
+    });
   }
 
   getFilteredColRowValue(namedColumn, rowNum, useEsnFiltered = true) {

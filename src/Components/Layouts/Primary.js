@@ -41,35 +41,49 @@ export default class PrimaryLayout extends Component {
     return (
       <BrowserRouter>
         <div className='Primary'>
+          {this.store.isLoading &&
+            <div className='loading'>
+              Loading...
+            </div>
+          }
           <Helmet>
             <meta charSet='utf-8' />
-            <title>Spacetime Tools</title>
+            <title>Telematics Data Analyzer</title>
           </Helmet>
           <header>
             <ReactFileReader fileTypes={['.csv']} base64={true} handleFiles={(files) => this.handleFiles(files)}>
               <button className='btn upload-file'>Upload</button>
             </ReactFileReader>
-            <label className='esn-filter-label'>ESN Filter:&nbsp;</label>
-            <Select
-              value={this.store.selectedESN}
-              onChange={this.store.onESNFilterChange}
-              options={this.store.filterESNs}
-              clearable={false}
-            />
-            <div className='Nav'>
-              <span className='nav-item'>
-                <Link to='/latency-over-time'>Latency</Link>
-              </span>
-              <span className='nav-item'>
-                <Link to='/oil-life-over-time'>Oil Life Remaining</Link>
-              </span>
-              <span className='nav-item'>
-                <Link to='/odometer-over-time'>Odometer</Link>
-              </span>
-              <span className='nav-item'>
-                <Link to='/fuel-over-time'>Fuel Level</Link>
-              </span>
-            </div>
+            {this.store.fileValueRows.length === 0 &&
+              <div className='section-heading'>
+                <div className='instruction'>Upload a data CSV file to continue.</div>
+              </div>
+            }
+            {this.store.fileValueRows.length > 0 &&
+              <div className='controls'>
+                <label className='esn-filter-label'>ESN Filter:&nbsp;</label>
+                <Select
+                  value={this.store.selectedESN}
+                  onChange={this.store.onESNFilterChange}
+                  options={this.store.filterESNs}
+                  clearable={false}
+                />
+                <div className='Nav'>
+                  <span className='nav-item'>
+                    <Link to='/latency-over-time'>Latency</Link>
+                  </span>
+                  <span className='nav-item'>
+                    <Link to='/oil-life-over-time'>Oil Life Remaining</Link>
+                  </span>
+                  <span className='nav-item'>
+                    <Link to='/odometer-over-time'>Odometer</Link>
+                  </span>
+                  <span className='nav-item'>
+                    <Link to='/fuel-over-time'>Fuel Level</Link>
+                  </span>
+                </div>
+              </div>
+            }
           </header>
             <main className='app-main'>
               <div className='content'>

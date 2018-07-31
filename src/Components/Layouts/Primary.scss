@@ -1,11 +1,32 @@
 .Primary {
+  .loading {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    left: -20px;
+    top: -20px;
+    padding: 30% 50%;
+    z-index: 100;
+
+    content: 'Loading';
+    background-color: #fff;
+    opacity: .7;
+  }
+
   header {
-    display: flex;
-    text-wrap: none;
-    flex-basis: 100%;
-    justify-content: flex-start;
-    align-items: center;
     margin-bottom: 20px;
+    display: flex;
+
+    .instruction {
+      margin-top: 6px;
+    }
+
+    .controls {
+      display: flex;
+      text-wrap: none;
+      flex-basis: 100%;
+      justify-content: flex-start;
+    }
 
     .upload-file {
       margin-right: 20px;
@@ -13,6 +34,7 @@
       width: 140px;
       font-size: 14px;
     }
+
     .Select {
       width: 160px;
     }
@@ -22,11 +44,9 @@
       display: flex;
       justify-content: space-between;
 
-      height: 40px;
-      width: 400px;
-
       .nav-item {
-        line-height: 40px;
+        margin: 6px 20px;
+        height: 40px;
       }
     }
   }
