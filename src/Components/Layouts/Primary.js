@@ -2,12 +2,10 @@ import {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import {inject, observer} from 'mobx-react';
 import {Provider} from 'mobx-react';
+import {Link, Route, BrowserRouter, Switch} from 'react-router-dom';
 import React from 'react';
-import {Route, BrowserRouter, Switch} from 'react-router-dom';
 import ReactFileReader from 'react-file-reader';
 import Select from 'react-select';
-
-import LeftNav from '@Components/LeftNav/LeftNav';
 
 import FuelOverTime from '@Modules/FuelOverTime/FuelOverTime';
 import LatencyOverTime from '@Modules/LatencyOverTime/LatencyOverTime';
@@ -57,10 +55,23 @@ export default class PrimaryLayout extends Component {
             options={this.store.filterESNs}
             clearable={false}
           />
+          <div className='Nav'>
+            <span className='nav-item'>
+              <Link to='/latency-over-time'>Latency</Link>
+            </span>
+            <span className='nav-item'>
+              <Link to='/oil-life-over-time'>Oil Life Remaining</Link>
+            </span>
+            <span className='nav-item'>
+              <Link to='/odometer-over-time'>Odometer</Link>
+            </span>
+            <span className='nav-item'>
+              <Link to='/fuel-over-time'>Fuel Level</Link>
+            </span>
+          </div>
         </header>
         <BrowserRouter>
           <main className='app-main'>
-            <LeftNav />
             <div className='content'>
               <Route exact path='/' component={Home} />
               <Route path='/latency-over-time' component={LatencyOverTime} />
