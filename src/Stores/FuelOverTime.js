@@ -36,9 +36,9 @@ export default class LatencyOverTime {
     for(let i = 0; i < this.appState.esnFilteredValueRows.length - 1; i++) {
         let fuelPct  = parseFloat(this.appState.getFilteredColRowValue(ColumnNames.ObdFuelLevelPct, i));
         let esn  = this.appState.getFilteredColRowValue(ColumnNames.ESN, i);
-        let time  = i;//moment.utc(this.appState.getFilteredColRowValue(ColumnNames.TimeMessageReceivedUTC, i)).unix();
+        let time  = moment.utc(this.appState.getFilteredColRowValue(ColumnNames.TimeMessageReceivedUTC, i));
 
-        output.push({name: esn, time: time, amt: fuelPct});
+        output.push({name: esn, time: time, percent: fuelPct});
     }
 
     this.result = output;

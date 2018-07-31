@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import {inject, observer} from 'mobx-react';
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Legend} from 'recharts';
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 import React from 'react';
 
 import './FuelOverTime.scss';
@@ -24,6 +24,16 @@ export default class FuelOverTime extends Component {
     this.store.setActive(false);
   }
 
+  tooltipFormat(data) {
+    let out;
+    if(data.payload.length>0) {
+      out = data.payload[0].payload.percent+'%  At: '+data.payload[0].payload.time.toString();
+    } else {
+      out = '';
+    }
+    return out;
+  }
+
   render() {
     return (
       <div className='FuelOverTime'>
@@ -38,11 +48,11 @@ export default class FuelOverTime extends Component {
               <label className='section-label'>Fuel over Time&nbsp;</label>
             </div>
             <LineChart width={1200} height={600} data={this.store.output} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-              <XAxis dataKey="time"/>
+              <XAxis dataKey="time" hide />
               <YAxis/>
-              <CartesianGrid strokeDasharray="3 3"/>
-              <Legend />
-              <Line type="monotone" dataKey="amt" stroke="#8884d8" />
+              <CartesianGrid strokeDasharray="3 3" />
+              <Line type="monotone" dataKey="percent" stroke="#8884d8" />
+              <Tooltip content={this.tooltipFormat} animationDuration={200} />
             </LineChart>
           </div>
         }

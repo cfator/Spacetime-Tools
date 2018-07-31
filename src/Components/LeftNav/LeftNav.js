@@ -17,19 +17,16 @@ export default class LeftNav extends Component {
       <div className='LeftNav'>
         <ol>
           <li className='nav-item'>
-            <Link to='/latency-over-time'>Latency Trend</Link>
+            <Link to='/latency-over-time'>Latency</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/oil-life-over-time'>Oil Life Trend</Link>
+            <Link to='/oil-life-over-time'>Oil Life Remaining</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/odometer-over-time'>Odometer Trend</Link>
+            <Link to='/odometer-over-time'>Odometer</Link>
           </li>
           <li className='nav-item'>
-            <Link to='/fuel-over-time'>Fuel Trend</Link>
-          </li>
-          <li className='nav-item'>
-            <Link to='/playground'>Playground</Link>
+            <Link to='/fuel-over-time'>Fuel Level</Link>
           </li>
         </ol>
       </div>
