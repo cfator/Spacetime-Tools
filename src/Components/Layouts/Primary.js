@@ -39,50 +39,50 @@ export default class PrimaryLayout extends Component {
 
   render() {
     return (
-      <div className='Primary'>
-        <Helmet>
-          <meta charSet='utf-8' />
-          <title>Spacetime Tools</title>
-        </Helmet>
-        <header>
-          <ReactFileReader fileTypes={['.csv']} base64={true} handleFiles={(files) => this.handleFiles(files)}>
-            <button className='btn upload-file'>Upload</button>
-          </ReactFileReader>
-          <label className='esn-filter-label'>ESN Filter:&nbsp;</label>
-          <Select
-            value={this.store.selectedESN}
-            onChange={this.store.onESNFilterChange}
-            options={this.store.filterESNs}
-            clearable={false}
-          />
-          <div className='Nav'>
-            <span className='nav-item'>
-              <Link to='/latency-over-time'>Latency</Link>
-            </span>
-            <span className='nav-item'>
-              <Link to='/oil-life-over-time'>Oil Life Remaining</Link>
-            </span>
-            <span className='nav-item'>
-              <Link to='/odometer-over-time'>Odometer</Link>
-            </span>
-            <span className='nav-item'>
-              <Link to='/fuel-over-time'>Fuel Level</Link>
-            </span>
-          </div>
-        </header>
-        <BrowserRouter>
-          <main className='app-main'>
-            <div className='content'>
-              <Route exact path='/' component={Home} />
-              <Route path='/latency-over-time' component={LatencyOverTime} />
-              <Route path='/oil-life-over-time' component={OilLifeOverTime} />
-              <Route path='/odometer-over-time' component={OdometerOverTime} />
-              <Route path='/fuel-over-time' component={FuelOverTime} />
-              <Route path='/playground' component={Playground} />
+      <BrowserRouter>
+        <div className='Primary'>
+          <Helmet>
+            <meta charSet='utf-8' />
+            <title>Spacetime Tools</title>
+          </Helmet>
+          <header>
+            <ReactFileReader fileTypes={['.csv']} base64={true} handleFiles={(files) => this.handleFiles(files)}>
+              <button className='btn upload-file'>Upload</button>
+            </ReactFileReader>
+            <label className='esn-filter-label'>ESN Filter:&nbsp;</label>
+            <Select
+              value={this.store.selectedESN}
+              onChange={this.store.onESNFilterChange}
+              options={this.store.filterESNs}
+              clearable={false}
+            />
+            <div className='Nav'>
+              <span className='nav-item'>
+                <Link to='/latency-over-time'>Latency</Link>
+              </span>
+              <span className='nav-item'>
+                <Link to='/oil-life-over-time'>Oil Life Remaining</Link>
+              </span>
+              <span className='nav-item'>
+                <Link to='/odometer-over-time'>Odometer</Link>
+              </span>
+              <span className='nav-item'>
+                <Link to='/fuel-over-time'>Fuel Level</Link>
+              </span>
             </div>
-          </main>
-        </BrowserRouter>
-      </div>
+          </header>
+            <main className='app-main'>
+              <div className='content'>
+                <Route exact path='/' component={Home} />
+                <Route path='/latency-over-time' component={LatencyOverTime} />
+                <Route path='/oil-life-over-time' component={OilLifeOverTime} />
+                <Route path='/odometer-over-time' component={OdometerOverTime} />
+                <Route path='/fuel-over-time' component={FuelOverTime} />
+                <Route path='/playground' component={Playground} />
+              </div>
+            </main>
+        </div>
+      </BrowserRouter>
     )
   }
 }

@@ -18,6 +18,16 @@
     }
   }
 
+  .react-grid-Container {
+    .react-grid-HeaderCell-sortable {
+      padding-left: 14px;
+    }
+    .react-grid-HeaderCell-sortable--ascending,
+    .react-grid-HeaderCell-sortable--descending {
+      padding-left: 0;
+    }
+  }
+
   .footer {
     margin-top: 4px;
   }

@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Spacetime Tools",
   "main": "index.js",
-  "engines" : {
-    "node" : ">9 <10"
-  },
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "echo \"No test specified\" && exit 0"
@@ -38,11 +35,13 @@
     "file-loader": "^1.1.11",
     "fontawesome": "^4.7.2",
     "install": "^0.11.0",
+    "jquery": "^3.3.1",
     "json-loader": "^0.5.7",
     "lodash": "^4.17.10",
     "mobx": "^4.2.0",
     "mobx-react": "^5.0.0",
     "moment": "^2.22.1",
+    "popper.js": "^1.14.3",
     "react": "^16.2.0",
     "react-data-grid": "^3.0.11-next3891",
     "react-dom": "^16.2.0",

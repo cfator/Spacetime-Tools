@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import AppState from '@Stores/AppState';
 import PrimaryLayout from '@Components/Layouts/Primary';
 
+import 'bootstrap';
 import style from './_scss/main.scss';
 
 const App = () => (

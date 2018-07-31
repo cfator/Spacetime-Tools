@@ -5,6 +5,8 @@ import ColumnNames from '@Constants/ColumnNames';
 
 export default class LatencyOverTime {
   active = false;
+  sortColumn = 'NONE';
+  sortDirection = 'NONE';
 
   constructor(appState) {
     this.appState = appState;
@@ -40,6 +42,21 @@ export default class LatencyOverTime {
       this.analyze();
     }
   }
+
+  handleGridSort = (sortColumn, sortDirection) => {
+    this.sortColumn = sortColumn;
+    this.sortDirection = sortDirection;
+
+    const comparer = (a, b) => {
+      if (sortDirection === 'ASC') {
+        return (a[sortColumn] > b[sortColumn]) ? 1 : -1;
+      } else if (sortDirection === 'DESC') {
+        return (a[sortColumn] < b[sortColumn]) ? 1 : -1;
+      }
+    };
+
+    this.output = sortDirection === 'NONE' ? this.output : this.output.sort(comparer);
+  };
 
   analyze() {
     if(!this.active) {

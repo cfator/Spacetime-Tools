@@ -38,7 +38,7 @@ export default class LatencyOverTime {
         let esn  = this.appState.getFilteredColRowValue(ColumnNames.ESN, i);
         let time  = moment.utc(this.appState.getFilteredColRowValue(ColumnNames.TimeMessageReceivedUTC, i));
 
-        output.push({name: esn, time: time, percent: fuelPct});
+        output.push({name: esn, time: time.toString(), percent: fuelPct});
     }
 
     this.result = output;

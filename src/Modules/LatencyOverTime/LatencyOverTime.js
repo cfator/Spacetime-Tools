@@ -12,10 +12,10 @@ import './LatencyOverTime.scss';
 
 export default class LatencyOverTime extends Component {
   columns = [
-    { key: 'duration', name: 'Duration', sortable: false },
-    { key: 'signalStrength', name: 'Signal', sortable: false },
-    { key: 'cords', name: 'Cord', width: 300, sortable: false },
-    { key: 'ESN', name: 'ESN', sortable: false }
+    { key: 'duration', name: 'Duration', sortable: true },
+    { key: 'signalStrength', name: 'Signal', sortable: true },
+    { key: 'cords', name: 'Cord', width: 300, sortable: true },
+    { key: 'ESN', name: 'ESN', sortable: true }
   ];
 
   constructor(props) {
@@ -52,6 +52,10 @@ export default class LatencyOverTime extends Component {
     }
   }
 
+  rowGetter = (i) => {
+    return this.store.output[i];
+  };
+
   render() {
     return (
       <div className='LatencyOverTime'>
@@ -66,7 +70,8 @@ export default class LatencyOverTime extends Component {
         </div>
         <ReactDataGrid
           columns={this.columns}
-          rowGetter={(i) => {return this.store.output[i];}}
+          onGridSort={this.store.handleGridSort}
+          rowGetter={this.rowGetter}
           rowsCount={this.store.output.length}
           minHeight={600}
           getCellActions={this.getCellActions}

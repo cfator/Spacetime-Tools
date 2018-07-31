@@ -27,7 +27,7 @@ export default class FuelOverTime extends Component {
   tooltipFormat(data) {
     let out;
     if(data.payload.length>0) {
-      out = data.payload[0].payload.percent+'%  At: '+data.payload[0].payload.time.toString();
+      out = data.payload[0].payload.percent+'%  At: '+data.payload[0].payload.time;
     } else {
       out = '';
     }
