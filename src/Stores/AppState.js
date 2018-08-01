@@ -52,14 +52,6 @@ class AppState {
     this.updateAnalysis();
   };
 
-  @action setIsLoading = (callback) => {
-    this.isLoading = true;
-    setTimeout((() => {
-      callback();
-      this.isLoading = false;
-    }).bind(this), 200);
-  };
-
   logError(message, level, exception = {}) {
     if(this.errors.length > 999) {
       this.errors.splice(-1, 1);
@@ -164,11 +156,9 @@ class AppState {
   }
 
   updateAnalysis() {
-    this.setIsLoading(() => {
-      // call analyze on each sub-store, only ones with active views will actually compute
-      this.latencyOverTime.analyze();
-      this.fuelOverTime.analyze();
-    });
+    // call analyze on each sub-store, only ones with active views will actually compute
+    this.latencyOverTime.analyze();
+    this.fuelOverTime.analyze();
   }
 
   getFilteredColRowValue(namedColumn, rowNum, useEsnFiltered = true) {

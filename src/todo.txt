@@ -1,6 +1,6 @@
-loading state
 move calcs to webworkers
 odometer module
 oil remaining module
 move to redux
 time zoomable line char
+fix warnings

@@ -4,7 +4,9 @@ import {inject, observer} from 'mobx-react';
 import {Provider} from 'mobx-react';
 import {Link, Route, BrowserRouter, Switch} from 'react-router-dom';
 import React from 'react';
-import ReactFileReader from 'react-file-reader';
+// import ReactFileReader from 'react-file-reader';
+import ReactFileReader from './ReactFileReader';
+
 import Select from 'react-select';
 
 import FuelOverTime from '@Modules/FuelOverTime/FuelOverTime';
@@ -35,6 +37,8 @@ export default class PrimaryLayout extends Component {
 
     this.store.setFileContents(contents);
     this.store.parseCSV();
+
+    this.store.isLoading = false;
   };
 
   render() {
@@ -51,7 +55,8 @@ export default class PrimaryLayout extends Component {
             <title>Telematics Data Analyzer</title>
           </Helmet>
           <header>
-            <ReactFileReader fileTypes={['.csv']} base64={true} handleFiles={(files) => this.handleFiles(files)}>
+            <ReactFileReader fileTypes={['.csv']} base64={true} handleFiles={(files) => this.handleFiles(files)}
+                             onStart={() => this.store.isLoading = true}>
               <button className='btn upload-file'>Upload</button>
             </ReactFileReader>
             {this.store.fileValueRows.length === 0 &&
